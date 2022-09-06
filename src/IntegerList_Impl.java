@@ -1,17 +1,7 @@
 import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
 
 public class IntegerList_Impl implements IntegerListInterface {
    
-        Integer[] integerTestList = new Integer[100_000];
-        private void testListInitialization() {
-            Random value = new Random();
-            for (int i = 0; i < integerList.length; i++) {
-                integerList[i] = value.nextInt(0, 500_000);
-            }
-        }
-
         Integer[]integerList = new Integer[16];
         Integer[] shiftLeft(int index){
             for (int i = index; i < integerList.length; i++){
@@ -83,10 +73,9 @@ public class IntegerList_Impl implements IntegerListInterface {
 
         @Override
         public boolean contains(Integer item) {
-            for (Integer e : integerList) {
-                return Objects.equals(e, item);
-            }
-            return false;
+            sortingBySelection(integerList);
+            return findItem(integerList,item);
+
         }
 
         @Override
@@ -164,5 +153,37 @@ public class IntegerList_Impl implements IntegerListInterface {
             }
             return newArray;
         }
+    private void sortingBySelection(Integer[] array){
+        for (int i = 0; i < size(); i++) {
+            int minValueIndex = i;
+            for (int j = size()-1; j > i; j--) {
+                if (array[j] < array[minValueIndex]){
+                    minValueIndex = j;
+                }
+            }
+            swap(array,i,minValueIndex);
+        }
+    }
+    private void swap(Integer[] array, int from, int to){
+        int temp = array[to];
+        array[to] = array[from];
+        array[from] = temp;
+    }
+    private boolean findItem(Integer[] array, int item) {
+        int min = 0;
+        int max = size() - 1;
+        while (min <= max) {
+            int mid = (min + max) / 2;
+            if (item == array[mid]) {
+                return true;
+            }
+            if (item < array[mid]) {
+                max = mid - 1;
+            } else {
+                min = mid + 1;
+            }
+        }
+        return false;
+    }
     }
 

@@ -1,6 +1,6 @@
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
@@ -64,6 +64,11 @@ public class IntegerListImplTest {
     @Test
     public void equalsShouldCompareArraysOrThrowNPE(){
         Assertions.assertArrayEquals(OUT.integerList, TEST_LIST);
-
+    }
+    @Test
+    public void shouldReturnTEST_INDEXandFalse(){
+        OUT.integerList = SET_VALUE_BY_INDEX;
+        Assertions.assertTrue(OUT.contains(TEST_INDEX));
+        Assertions.assertFalse(OUT.contains(OUT_OF_BOUND_INDEX));
     }
 }
