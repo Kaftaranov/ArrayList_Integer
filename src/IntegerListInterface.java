@@ -3,7 +3,7 @@ public interface IntegerListInterface {
         // Добавление элемента.
         // Вернуть добавленный элемент
         // в качестве результата выполнения.
-        Integer add(Integer item);
+        Integer add(int item);
 
         // Добавление элемента
         // на определенную позицию списка.
@@ -12,7 +12,7 @@ public interface IntegerListInterface {
         // выбросить исключение.
         // Вернуть добавленный элемент
         // в качестве результата выполнения.
-        Integer add(Integer index, Integer item);
+        Integer add(int index, int item);
 
         // Установить элемент
         // на определенную позицию,
@@ -27,7 +27,7 @@ public interface IntegerListInterface {
         // Вернуть удаленный элемент
         // или исключение, если подобный
         // элемент отсутствует в списке.
-        Integer removeByValue(Integer item);
+        Integer removeByValue(int item);
 
         // Удаление элемента по индексу.
         // Вернуть удаленный элемент
