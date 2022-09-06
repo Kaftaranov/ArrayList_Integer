@@ -34,7 +34,7 @@ public class IntegerList_Impl implements IntegerListInterface {
         }
 
         @Override
-        public Integer add(Integer item) {
+        public Integer add(int item) {
             if(size() == 0){
                 return integerList[0] = item;
             }
@@ -42,7 +42,7 @@ public class IntegerList_Impl implements IntegerListInterface {
         }
 
         @Override
-        public Integer add(Integer index, Integer item) {
+        public Integer add(int index, int item) {
             if (index > size() || index > integerList.length){
                 throw new RuntimeException("Index is out of bounds");
             }
@@ -59,7 +59,7 @@ public class IntegerList_Impl implements IntegerListInterface {
         }
 
         @Override
-        public Integer removeByValue(Integer item) {
+        public Integer removeByValue(int item) {
             for (int i = 0; i < integerList.length; i++) {
                 if (integerList[i].equals(item)) {
                     shiftLeft(i);
